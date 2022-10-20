@@ -4,23 +4,23 @@ const getCleanedZipCode = (value) => {
         value = String(value);
     }
     
-    value = value.replace(/\s/g, '')
+    let newValue = value.replace(/\s/g, '')
 
-    if (value.includes("-")) {
-     	 const indexChar= value.indexOf("-")
-        const newArr = value.split("")
-        const removeChar = newArr.splice(indexChar, 1)
-        const newStr = newArr.join("")  
-        value = newStr
+    if (newValue.includes("-")) {
+     	 const indexChar= newValue.indexOf("-")
+       const newArr = newValue.split("")
+       const removeChar = newArr.splice(indexChar, 1)
+       const newStr = newArr.join("")  
+       newValue = newStr
     }   
 
-    if (value.length <= 4 || value.length >= 7) {
+    if (newValue.length <= 4 || newValue.length >= 7) {
         return ""
     }
   
-    if (value.length === 5) {
-        return value.substring(0, 2) + "-" + value.substring(2, 5)
+    if (newValue.length === 5) {
+        return newValue.substring(0, 2) + "-" + newValue.substring(2, 5)
     }
 }
 
-console.log(getCleanedZipCode("-2123"))
+console.log(getCleanedZipCode("-71345"))
